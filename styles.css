@@ -21,8 +21,8 @@
     --surface: #f9eee1;
     --text: #272119;
     --text-muted: #3f3e3e;
-    --accent: #962222;
-    --accent-dark: #701919;
+    --accent: #c30054;
+    --accent-dark: #834861;
     --border: rgba(39, 33, 25, 0.18);
     --border-light: rgba(39, 33, 25, 0.12);
     --radius: 0.25rem;
@@ -96,6 +96,11 @@ main {
     display: block;
 }
 
+label, input, button {
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--text-muted); 
+}
 .section-nav {
     position: sticky;
     top: 0;
@@ -347,4 +352,76 @@ footer {
         transition-duration: 0.01ms !important;
     }
 }
-```
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+form {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background-color: var(--surface);
+    color: var(--text);
+
+    transition:
+        border-color 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
+}
+
+.search-bar input::placeholder {
+    color: #838383;
+}
+
+.search-bar input:focus, .search-bar input:focus-visible, .search-bar input:hover {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(195, 0, 84, 0.3);
+}
+
+.search-bar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 100%;
+    background-color: var(--surface);
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease-in-out,
+        border-color 0.2s ease-in-out;
+}
+
+.search-bar button:hover,
+.search-bar button:focus-visible {
+    background-color: var(--accent);
+}
+
+.search-bar button svg {
+    fill: var(--text);
+}
+
+.search-bar button:hover svg,
+.search-bar button:focus-visible svg {
+    fill: var(--surface);
+}
+
